@@ -2,10 +2,21 @@
 
 This repository holds a set of PHP classes designed to support public
 sign up of Partners. Those Partners are allowed to extend Models which
-are XML documents with identified substitution points. When Partners
-extend Models they may specify values or upload files as assets to be
-to be built into the Models. Setting the permanent and optionally
-identifying default assets creates a new Product for that partner.
+are XML documents with assets at identified substitution points. When
+Partners extend Models they may specify values or upload files as
+assets to be to be built into the Models. Setting the permanent assets
+and optionally identifying default for Customer assets allows the
+Model to create a new Product for that Partner.
+
+## Code organization
+
+This prototype offers the object structure under angle/class. A crude
+Model building and test interface via web forms at
+angel/loadup/web. The directory at angle/partner is a WordPress site
+demo-ing Partner access working with Models and Products. The actual
+work in the WordPress demo pages is contained in
+angel/partner/wp-content/themes/the-bootstrap/templates within the two
+files: orders.php and partnerKeys.php.
 
 ## Object hierarchy objectives
 
@@ -14,17 +25,10 @@ identified as extendable by the Customer when that Product Order is
 created. The system provides a vendor price for Models and allows the
 Partner to set the retail price of each Product.
 
-Orders include shipping Label information and allow the Customer to
-identify and reuse multiple Destinations. Order processing
-accommodates multiple Items, external transaction clearing and
-culminates with XML Order submission to the "# Vending Partnerships through Keys
-
-This repository holds a set of PHP classes designed to support public
-sign up of Partners. Those Partners are allowed to extend Models which
-are XML documents with identified substitution points. When Partners
-extend Models they may specify values or upload files as assets to be
-to be built into the Models. Setting the permanent and optionally
-identifying default assets creates a new Product for that partner.
+Orders include shipping Address information and allow the Customer to
+identify and reuse multiple Addresses. Order processing accommodates
+multiple Items, external transaction clearing and culminates with XML
+Order submission to the "factory".
 
 ## Object hierarchy objectives
 
