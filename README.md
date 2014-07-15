@@ -10,9 +10,9 @@ Model to create a new Products for that Partner.
 
 ### Code organization
 
-This prototype offers the object structure under angle/class. A crude
+This prototype offers the object structure under angel/class. A crude
 Model building and test interface via web forms at
-angel/loadup/web. The directory at angle/partner is a WordPress site
+angel/loadup/web. The directory at angel/partner is a WordPress site
 demo-ing Partner access working with Models and Products. The actual
 work in the WordPress demo pages is contained in
 angel/partner/wp-content/themes/the-bootstrap/templates within the two
@@ -21,20 +21,23 @@ files: orders.php and partnerKeys.php.
 ### Object hierarchy objectives
 
 Each substitution in a Model may be locked by the Partner or
-identified as extendable by the Customer when that Product Order is
-created. The system provides a vendor price for Models and allows the
-Partner to set the retail price of each Product.
+identified as extendable by the Customer at Order creation. The system
+provides a vendor price for Models and allows the Partner to set the
+retail price of each Product. Partners may obtain multiple Keys for
+the same Product to accomidate points-of-sale as well as
+software-version tracking and enable/disable.
 
-Orders include shipping Label information and allow the Customer to
-identify and reuse multiple Destinations. Order processing
+Orders include shipping Address information allowing the Customer to
+identify and reuse multiple destinations. Order processing
 accommodates multiple Items, external transaction clearing and
 culminates with XML Order submission to the "factory".
 
-A recording http endpoint tracks progress by Item by accepting status
-messages accompanied by Item keys.
+A RESTful/JSON interface is provided for order creation and asset
+modification. A http endpoint tracks progress for each Item by
+accepting status messages accompanied by Item keys.
 
-All of the nouns capitalized above are represented as PHP
-objects. The creation of each produces a unique, type identified, Key
+All of the nouns capitalized above are represented as PHP objects. The
+creation of each produces a unique, type-identified, unguessable, Key
 which may be used to access the object in the mySql database.
 
 ### Object construction and instantiation
