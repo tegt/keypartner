@@ -6,7 +6,7 @@ are XML documents with assets at identified substitution points. When
 Partners extend Models they may specify values or upload files as
 assets to be to be built into the Models. Setting the permanent assets
 and optionally identifying defaults for Customer assets allows the
-Model to create a new Products for that Partner.
+Model to create new Products for that Partner.
 
 ### Code organization
 
