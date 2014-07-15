@@ -2,11 +2,11 @@
   /**
    *  Functionality common to all RPI classes
    *
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @package keypartner
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
    */
-abstract class Rpi {
+abstract class Kpt {
 
     /** Fills an object's properties from database names
      *
@@ -156,6 +156,6 @@ abstract class Rpi {
         exit;
     }
 
-  } // Class Rpi
+  } // Class Kpt
 
 ?>

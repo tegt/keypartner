@@ -1,11 +1,11 @@
 <?php
-  /** RPI key composition/decompsition static class 
+  /** KPT key composition/decompsition static class 
    *
    */
 
-define ('RpiKeySeed', 0XA98C18E9);
+define ('KptKeySeed', 0XA98C18E9);
 
-class RpiKey {
+class KptKey {
 
     /** Compose, decompose and validate key formats
      *
@@ -163,9 +163,9 @@ class RpiKey {
      *  @returns Index value
      */
     static function index($key, $type='') {
-        if (! RpiKey::check($key))
+        if (! KptKey::check($key))
             throw new Exception('Ill formed key: '.$key);
-        $r = base_convert((int)substr($key,1,8), 16, 10) ^ (int)RpiKeySeed;
+        $r = base_convert((int)substr($key,1,8), 16, 10) ^ (int)KptKeySeed;
         /* if ($r > 2147483647)  */
         /*     throw new Exception('Key index too large: '.$key); */
         if ($type <> '' && substr($key,9,1) <> $type) {
@@ -180,7 +180,7 @@ class RpiKey {
      *  @returns Index type character 
      */
     static function type($key) {
-        if (! RpiKey::check($key))
+        if (! KptKey::check($key))
             throw new Exception('Ill formed key: '.$key);
         return substr($key,9,1);
     }
@@ -188,17 +188,17 @@ class RpiKey {
     /** Generate/regenerate a key
      *
      *  @param  index  The item index integer or an old key
-     *  @param  flag   RPI type for this key (currently 'P' or 'I')
+     *  @param  flag   KPT type for this key (currently 'P' or 'I')
      */
     static function gen($index, $flag='') {
         if (substr($index,1,1) == 'R') {
             $flag = substr($index,9,1);
-            $index = RpiKey::index($index);
+            $index = KptKey::index($index);
         }
         if ($index > PHP_INT_MAX)  { // input too large
             throw new Exception('Key index too large: '.$index);
         }
-        return strtoupper('R'.base_convert((int)$index ^ (int)RpiKeySeed, 10, 16)
+        return strtoupper('R'.base_convert((int)$index ^ (int)KptKeySeed, 10, 16)
                           .$flag.md5(time()));
     }
     

@@ -2,10 +2,11 @@
   /**
    *  Partner information
    *  
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @package keypartner
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
    */
+
  class Partner extends Person {
 
     /** Reads a partner object from the db
@@ -29,7 +30,7 @@
 
             $this->key = null;
             if (isset($a['kpKey'])) { // if key add object
-                $this->key = new RpiKey;
+                $this->key = new KptKey;
                 $this->key->key = $a['kpKey'];
                 $this->key->pid = $a['pId'];
             }

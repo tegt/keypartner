@@ -2,11 +2,12 @@
   /**
    *  Model information
    *  
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier eLimn LLC
+   *  @package keypartner
    */
- class Model extends Rpi {
+
+ class Model extends Kpt {
 
     /** Reads a partner object from the db
      *
@@ -26,7 +27,7 @@
                      .'   WHERE mId='.(int)$seed;
              }
 
-             elseif (RpiKey::check($seed)) { // seed must be a key
+             elseif (KptKey::check($seed)) { // seed must be a key
                  $s = 'SELECT * FROM keysmodel'
                      .' JOIN models ON kmMId=mId'
                      .' LEFT JOIN slots ON smId=mmId'
@@ -48,7 +49,7 @@
                  if (isset($a['kmKey']) // model key exists once
                      && $kmKey <> $a['kmKey']) {
                      $kmKey = $a['kmKey'];
-                     $kmObj = new RpiKey;
+                     $kmObj = new KptKey;
                      $kmObj->key = $kmKey;
                      $kmObj->mid = $a['mId'];
                  }
@@ -57,7 +58,7 @@
                      $mId = $a['mId'];
                      $this->dbFill('m', $a);
                      
-                     if (is_a($kmObj, 'RpiKey')) { // link key we came in on
+                     if (is_a($kmObj, 'KptKey')) { // link key we came in on
                          $this->keys[0] = $kmObj;
                      }
                      $this->assets = array();

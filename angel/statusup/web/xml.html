@@ -15,13 +15,13 @@ var pingUrl="/statusup/";
 
 function logIt() {
     $.ajax({
-	       url: 'http://storefronttest.rpiprint.com/statusup/index.php',
+	       url: 'http://storefronttest.kptprint.com/statusup/index.php',
 	       data: '<?xml version="1.0" encoding="utf-8"?> \
 		   <Notification version="1.0" \
-		     xmlns="http://uos.rpiprint.com/xml/RPIAckXML" \
+		     xmlns="http://uos.kptprint.com/xml/KPTAckXML" \
 		     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" \
-		     xsi:schemaLocation="http://uos.rpiprint.com/xml/RPIAckXML \
-		       http://uos.rpiprint.com/xml/RPIAckXML-1-0.xsd"> \
+		     xsi:schemaLocation="http://uos.kptprint.com/xml/KPTAckXML \
+		       http://uos.kptprint.com/xml/KPTAckXML-1-0.xsd"> \
 		     <OrderID>Acme123</OrderID> \
 		     <AltOrderID>Web123</AltOrderID> \
 		     <Status>Accepted</Status> \

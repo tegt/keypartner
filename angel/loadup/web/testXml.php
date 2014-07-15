@@ -1,8 +1,8 @@
 <?Php
 include '../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
-class RpiXMLWriter extends XMLWriter {
+class KptXMLWriter extends XMLWriter {
 
     /** Simple wrapper for optional elements
      */
@@ -35,7 +35,7 @@ $o = new Order($orderkey);
 //print_r($o);
 //print "------------------------\n";
 
-$uos = new RpiXMLWriter(); 
+$uos = new KptXMLWriter(); 
 
 // Output directly to the user 
 
@@ -48,14 +48,14 @@ $uos->startElement('Order'); // begin Order
 
 $uos->writeAttribute('version', '1.0'); 
 $uos->writeAttribute('xmlns:xsi', 'http://www.w3.org/2001/XMLSchema-instance'); 
-$uos->writeAttribute('xsi:schemaLocation', 'http://uos.rpiprint.com/xml/RPIOrderXML'
-                     .' '.'http://uos.rpiprint.com/xml/RPIOrderXMwL-1-0.xsd'); 
+$uos->writeAttribute('xsi:schemaLocation', 'http://uos.kptprint.com/xml/KPTOrderXML'
+                     .' '.'http://uos.kptprint.com/xml/KPTOrderXMwL-1-0.xsd'); 
 
 $uos->writeElement('Sender', 'StoreFront'); 
 $uos->writeElement('CustomerID', 'Tegt'); 
 $uos->writeElement('OrderID', $orderkey); 
 $uos->writeElement('OrderDate', date('c')); 
-$uos->writeElement('StatusUrl', 'http://storefronttest.rpiprint.com/statusup/'); 
+$uos->writeElement('StatusUrl', 'http://storefronttest.kptprint.com/statusup/'); 
 
 $uos->writeElement('ShipMethod', $o->shipping); 
 

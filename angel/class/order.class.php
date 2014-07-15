@@ -1,13 +1,13 @@
 <?php
   /**
-   *  Order Class for RPI Storefront
+   *  Order Class for Storefront
    *  
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @package keypartner
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
    */
 
-class Order extends Rpi {
+class Order extends Kpt {
 
     /**
      *  Order id
@@ -97,7 +97,7 @@ class Order extends Rpi {
                  .'   WHERE oId='.(int)$seed;
              }
 
-             elseif (RpiKey::check($seed)) { // seed must be a key
+             elseif (KptKey::check($seed)) { // seed must be a key
              $s = 'SELECT * FROM keysorder'
                  .' JOIN orders ON oId = koOId'
                  .' LEFT JOIN customers ON cId=ocId'
@@ -123,14 +123,14 @@ class Order extends Rpi {
                  if (isset($a['koKey']) // order key exists once
                      && $koKey == 0) {
                      $koKey = $a['koKey'];
-                     $koObj = new RpiKey;
+                     $koObj = new KptKey;
                      $koObj->key = $koKey;
                  }
 
                  if ($oId <> $a['oId']) { // new order content
                      $oId = $a['oId'];
                      $this->dbFill('o', $a);
-                     if (is_a($koObj, 'RpiKey')) { // link in key for order
+                     if (is_a($koObj, 'KptKey')) { // link in key for order
                          $koObj->oid = $this->id;
                          $this->key = $koObj;
                      }

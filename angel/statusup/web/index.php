@@ -3,7 +3,7 @@
  *  XML in the body.
  */
 include '../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 $body = file_get_contents('php://input');
 file_put_contents('/tmp/x', "---\n$body\n---\n");

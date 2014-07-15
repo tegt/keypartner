@@ -2,12 +2,12 @@
   /**
    *  Holds information common to all addresses.
    *  
-   *  @author Grant Tegtmeier <grant.tegtmeier@goswerve.com>
-   *  @package tdtg
-   *  @copyright Copyright (c) 2009 The Driver Training Group
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @copyright Copyright (c) 2009 Grant Tegtmeier eLimn LLC
+   *  @package person
    */
 
-class Addr extends Rpi {
+class Addr extends Kpt {
 
     /**
      *  Street line of address 1.

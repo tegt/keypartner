@@ -1,7 +1,7 @@
 #! /usr/bin/php
 <?Php
 include '../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 $seed = $argv[1].$_GET[1];
 $iId = $argv[2].$_GET[2];

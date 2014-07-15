@@ -3,21 +3,16 @@
  *
  * Template Name: Partner Keys
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
- *
- * @author		Grant Tegtmeier
- * @package		RPI
+ *  @author Grant Tegtmeier <Grant@Tegt.com>
+ *  @package keypartner
+ *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
  */
 
 get_header(); ?>
 
 <section id="primary" class="span8">
 	<?php tha_content_before(); ?>
-	<div id="content" role="main" class="rpi">
+	<div id="content" role="main" class="kpt">
 		<?php tha_content_top();
 		
 		if ( have_posts() ) {
@@ -28,7 +23,7 @@ get_header(); ?>
 
             // decend into angel structure
             require_once '/home/tegt/storefront/angel/inc/boot.inc';
-            rpiBoot(__FILE__);
+            kptBoot(__FILE__);
             
             $do = $_POST['do'];
             $postErr = '';
@@ -44,7 +39,7 @@ get_header(); ?>
                     break;
                 }
 
-                $kpKey = RpiKey::gen($pIndex, 'P');
+                $kpKey = KptKey::gen($pIndex, 'P');
                 $r = $DBO->run("INSERT keyspartner SET"
                                ." kpKey=".$DBO->esq($kpKey)
                                .", kpPid=".$_POST['myPid']
@@ -58,7 +53,7 @@ get_header(); ?>
                 $keyMsg = trim(stripslashes($_POST['msg']));
 
                 try {
-                    if (RpiKey::type($do) == 'P') { // action only if it's a valid partner key
+                    if (KptKey::type($do) == 'P') { // action only if it's a valid partner key
 
                         if (empty($keyMsg)) {
                             $postErr = 'Key Note cannot be blank!';

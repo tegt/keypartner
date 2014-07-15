@@ -1,7 +1,7 @@
 #! /usr/bin/php
 <?Php
 include '../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 $list = array(
               'item-1', 

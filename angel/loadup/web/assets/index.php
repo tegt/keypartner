@@ -1,6 +1,6 @@
 <?php
 include '../../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo '

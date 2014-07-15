@@ -1,11 +1,12 @@
 <?php
   /**
-   *  MySql result wrapper package.
+   *  mySqli result wrapper package.
    *  
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @package dbomy
+   *  @copyright Copyright (c) 2009 Grant Tegtmeier for eLimn LLC
    */
+
 class Result {
 
     /**

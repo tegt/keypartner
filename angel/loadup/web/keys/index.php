@@ -1,6 +1,6 @@
 <?Php
 include '../../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 $reply = '';
 $mList = '';
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                        ."'"
                        );
         $pIndex = $r->insertId();
-        $kpKey = RpiKey::gen($pIndex, 'P');
+        $kpKey = KptKey::gen($pIndex, 'P');
         $r = $DBO->run("INSERT keyspartner SET"
                        ." kpKey='".$DBO->esc($kpKey)
                        ."', kpPid=".$pIndex
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $reply = 'Failed: Select a Partner to own this Key.';
             break;
         }
-        $kpKey = RpiKey::gen($pIndex, 'P');
+        $kpKey = KptKey::gen($pIndex, 'P');
         $kpNote = $_POST['pKeyNote'];
         if ($kpNote == '') {
             $reply = 'Failed: You must enter a Key Note!';
@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             break;
         }
 
-        $kmKey = RpiKey::gen($mIndex, 'M');
+        $kmKey = KptKey::gen($mIndex, 'M');
 
         $r = $DBO->run("INSERT keysmodel SET "
                        ."kmKey='".$DBO->esc($kmKey)."', "
@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $oId = $DBO->run("INSERT INTO orders SET "
                          ."oNote='".$DBO->esc($oNote)."'")->insertId();
 
-        $oKey = RpiKey::gen($oId, 'O');
+        $oKey = KptKey::gen($oId, 'O');
         $r = $DBO->run("INSERT keysorder SET"
                        ." koKey='".$DBO->esc($oKey)
                        ."', koOid=".$oId

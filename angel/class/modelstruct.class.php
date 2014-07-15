@@ -9,11 +9,11 @@
    *  meaning and processing routines can change without having to
    *  change the actual database content.
    *  
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier eLimn LLC
+   *  @package keypartner
    */
- class ModelStruct extends Rpi {
+ class ModelStruct extends Kpt {
 
     public $version = 1;
 

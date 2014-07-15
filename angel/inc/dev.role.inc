@@ -5,7 +5,7 @@
  *
  */
 error_reporting(E_ALL ^ E_NOTICE);
-define ('DBURL', 'mysqli://market:rpipod@localhost/market');
+define ('DBURL', 'mysqli://market:kptpod@localhost/market');
 
 define ('assetDir', '/home/tegt/storefront/angel/loadup/web/assets');
 ?>

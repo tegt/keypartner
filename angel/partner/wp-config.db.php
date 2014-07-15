@@ -7,7 +7,7 @@ define('DB_NAME', 'wpress');
 define('DB_USER', 'wpress');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'rpipod');
+define('DB_PASSWORD', 'kptpod');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');

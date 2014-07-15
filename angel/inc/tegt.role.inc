@@ -6,7 +6,7 @@
  */
 error_reporting(E_ALL ^ E_NOTICE);
 
-define ('DBURL', 'mysqli://tegtrpi:tegt4RPI@db.tegt.com/tegtrpi');
+define ('DBURL', 'mysqli://tegtkpt:tegt4KPT@db.tegt.com/tegtkpt');
 
-define ('assetDir', '/home/tegt/rpi.tegt.com/angel/loadup/web/assets');
+define ('assetDir', '/home/tegt/kpt.tegt.com/angel/loadup/web/assets');
 ?>

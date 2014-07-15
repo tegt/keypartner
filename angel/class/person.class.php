@@ -2,9 +2,9 @@
 /**
  *  Holds information common to all people.
  *  
- *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
- *  @package angel
- *  @copyright Copyright (c) 2013 Reischling Press Inc
+ *  @author Grant Tegtmeier <Grant@Tegt.com>
+ *  @package person
+ *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
  */
 
 class Person extends Addr {

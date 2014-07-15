@@ -4,7 +4,7 @@
  *  JSON response to indicate status.
  */
 include '../../inc/boot.inc';
-rpiBoot(__FILE__);
+kptBoot(__FILE__);
 
 $orderIn = $_POST['order'];
 $partnerKey = $_POST['partnerkey'];
@@ -23,7 +23,7 @@ if (isset($partnerKey) && ! isset($orderKey)) {
     if (! isIndex($partner->id)) {
         $reply['order'] = '** none';
         $reply['partnerkey'] = '** invalid: partner key';
-        Rpi::jsonExit($reply);
+        Kpt::jsonExit($reply);
     }
 
     $order = new Order;
@@ -34,7 +34,7 @@ if (isset($partnerKey) && ! isset($orderKey)) {
         foreach ($errors as $eName => $eMsg) {
             $reply['order_'.strtolower($eName)] = '** invalid: '.$eMsg;
         }
-        Rpi::jsonExit($reply);
+        Kpt::jsonExit($reply);
     }
 
     $customer = new Customer; // empty customer label
@@ -45,7 +45,7 @@ if (isset($partnerKey) && ! isset($orderKey)) {
     $order->cid = $customer->id;
     $order->id = $order->write('orders', 'o');
 
-    $oKeyUpdate = new RpiKey($order); // Put new key in db under our order
+    $oKeyUpdate = new KptKey($order); // Put new key in db under our order
     $orderKey = $oKeyUpdate->key;
 }
 
@@ -62,7 +62,7 @@ if (isset($orderKey)) {
 
     if (! isIndex($order->id)) {
         $reply['orderkey'] = '** invalid: order key';
-        Rpi::jsonExit($reply);
+        Kpt::jsonExit($reply);
     }
 
     /** At this point we have an order in progress, new or
@@ -277,5 +277,5 @@ else {
     $reply['orderkey'] = '** missing';
 }
 
-Rpi::jsonExit($reply);
+Kpt::jsonExit($reply);
 ?>

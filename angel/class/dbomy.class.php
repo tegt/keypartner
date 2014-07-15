@@ -4,10 +4,11 @@
    * 
    *  It provides Result objects and throws exceptions as appropriate.
    *
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @copyright Copyright (c) 2011 Grant Tegtmeier eLimn LLC
+   *  @package dbomy
    */
+
 class DboMy extends mysqli {
 
     /** Construct object

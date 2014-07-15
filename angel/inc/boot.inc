@@ -8,30 +8,30 @@
    *  tailoring per role.
    *
    *  Usage:
-   *      include <path-to-this-file>/rpiboot.inc
-   *      rpiBoot(__FILE__);
+   *      include <path-to-this-file>/boot.inc
+   *      kptBoot(__FILE__);
    *
-   *  @author Grant Tegtmeier <Grant.Tegtmeier@RPIPrint.com>
-   *  @package angel
-   *  @copyright Copyright (c) 2013 Reischling Press Inc
+   *  @author Grant Tegtmeier <Grant@Tegt.com>
+   *  @package keypartner
+   *  @copyright Copyright (c) 2013 Grant Tegtmeier for eLimn LLC
    */
 
   /** The boot include path.
    *
-   *  This path is used to relocate the include structure making rpiboot
+   *  This path is used to relocate the include structure making kptboot
    *  and all of its plugin's relocatable. Thus multiple copies/versions
    *  can be used on a single machine without conflict.
    *
    */
-define('RPIBOOT', str_replace('/inc/', '/',
+define('KPTBOOT', str_replace('/inc/', '/',
                               dirname(__FILE__).'/'));
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-/** Establish RPI directory heirarchies.
+/** Establish KPT directory heirarchies.
  *
  *  Any include is searched for first in the file's directory then in
- *  the file's rpiboot/plug-in-directory/inc followed by rpiboot/inc
+ *  the file's kptboot/plug-in-directory/inc followed by kptboot/inc
  *  followed by the system defaults.
  *
  *  The same hierarchy applies to .class.php files from class
@@ -41,16 +41,16 @@ error_reporting(E_ALL ^ E_NOTICE);
  *
  */
 
-function rpiBoot($scriptfile, $db=true) {
+function kptBoot($scriptfile, $db=true) {
 
-    define('RPIPLUG', str_replace('/web/','/', 
+    define('KPTPLUG', str_replace('/web/','/', 
                                   dirname($scriptfile).'/'));
 
     set_include_path( '.'
-                      .':'.RPIPLUG.'inc'
-                      .':'.RPIPLUG.'class'
-                      .':'.RPIBOOT.'inc'
-                      .':'.RPIBOOT.'class'
+                      .':'.KPTPLUG.'inc'
+                      .':'.KPTPLUG.'class'
+                      .':'.KPTBOOT.'inc'
+                      .':'.KPTBOOT.'class'
                       .str_replace(':.:', ':',':'
                                    .get_include_path()));
 
@@ -86,9 +86,9 @@ function __autoload($name) {
  *  out systems will fail until a role file is created. 
  *
  */
-$role = glob(RPIBOOT.'*.role');
-if (! $role) die ('TERMINAL: No role file found:'.RPIBOOT."*.role\n");
-if (count($role) > 1) die ('TERMINAL: Multiple role files found:'.RPIBOOT."../*.role\n");
+$role = glob(KPTBOOT.'*.role');
+if (! $role) die ('TERMINAL: No role file found:'.KPTBOOT."*.role\n");
+if (count($role) > 1) die ('TERMINAL: Multiple role files found:'.KPTBOOT."../*.role\n");
 define ('ROLE', basename($role[0]));
 require_once ROLE.'.inc';
 

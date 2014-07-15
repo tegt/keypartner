@@ -73,7 +73,7 @@ if ( !defined('ABSPATH') )
 	define('ABSPATH', dirname(__FILE__) . '/');
 
 /**tegt*/
-session_name('rpiangel');
+session_name('kptangel');
 session_start();
 
 /** Sets up WordPress vars and included files. */
