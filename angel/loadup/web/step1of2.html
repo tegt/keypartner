@@ -1,0 +1,47 @@
+<head>
+  <title>Order in 2 POSTs part 1</title>
+</head>
+<body>
+  <form action="/orderup/" 
+	method="POST" enctype="multipart/form-data">
+
+    <!-- Every new order needs a valid partner key. -->
+
+partnerkey:
+    <input size="60" type="text" 
+       name="partnerkey" value="RA98C18E2PE36D3C4B419C1190710045F5F1526D23"><br />
+
+
+    <!-- Fields for the first item -->
+
+item-1:
+    <input size="60" type="text" 
+	   name="item-1" value="RA98C18A9ME93F04DDE4DF348EBE142008876BF5BD"><br />
+
+order-note:
+    <input size="60" type="text" 
+	   name="order-note" value="Thanks for the memories, Ruth"><br />
+
+    <!-- Information for the order lable. This may generate errors if
+    the field patterns are violated or if manditory fields are omitted
+    (empty). -->
+
+    <!-- To double check debug is asking that the entire order be
+    echoed back. -->
+
+debug:
+    <input size="60" type="text" 
+       name="debug" value=""><br />
+
+    <!-- We're not ready for the order to be placed yet. Not using
+    'place' as the value of 'order' signals that there is more to
+    come. -->
+
+order:
+    <input size="60" type="text" 
+	   name="order" value="ready"><br />
+
+    <input type="submit" name="do" value="Submit">
+  </form>
+</body>
+

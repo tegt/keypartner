@@ -1,0 +1,60 @@
+<head>
+  <title>Order in a single POST</title>
+</head>
+<body>
+  <form action="http:storefronttest.rpiprint.com/orderup" 
+	method="POST" enctype="multipart/form-data">
+
+    <input name="partnerkey" value="RA98C18E2PE36D3C4B419C1190710045F5F1526D23">
+
+    <input name="opref" value="Special offers at http://happypics.com/posters">
+    <input name="onote" value="Thanks for the memories, Ruth">
+    <input name="oshipping" value="UPS">
+
+    <input name="cname" value="Pete Haskel">
+    <input name="cemail" value="petehas@gmail.com">
+    <input name="cphone" value="4254333962">
+    <input name="caddr1" value="Fleetwood Apartments #1405">
+    <input name="caddr2" value="817 NE Mace St.">
+    <input name="ccity" value="Irving">
+    <input name="cstate" value="IL">
+    <input name="cpostal" value="68081">
+    <input name="ccountry" value="USA">
+
+    <!-- Fields to this point complete "order-start".  
+
+         If the rest were in a separate POST the response to the above
+         would be "order-1". Indicating the server is seeking the
+         first item of the order. -->
+
+    <input name="modelkey-1" value="RA98C18E9OED3C4AA990E152A1A3E1D8C35F298EFC">
+
+    <!-- If stopped here the response would be "order-1-inset"
+
+         The model matching this key is called "Cruise Sunset Poster
+         19x24". In the Portal this parner has already set the
+         "background" asset for this poster. The "inset" asset is
+         marked as required. The server response indicates that item 1
+         can't complete until a "inset" asset is POST'ed for it. -->
+
+    <input name="order-1-inset" type="file">
+
+    <!-- In the same POST that contains the "file" the multipart
+         content for "order-1-inset" should contain the image (png,
+         jpeg, etc.) for use as the asset. Note the file contents will be
+         tested on receipt.
+
+         At this point the order is complete. If the order were POSTed
+         as with an order field of anything except "order-placed" the
+         response would be "order-2". This would allow a second item
+         to be added to the order.
+
+         If the POST containd the following order field the response
+         would contain a order field ofr "order-placed", indicating
+         that this order is now validated, complete and ready to
+         process. -->
+
+    <input name="order" value="order-placed">
+
+  </form>
+</body>

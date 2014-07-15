@@ -1,0 +1,73 @@
+<head>
+  <title>Order in 2 POSTs part 2</title>
+</head>
+<body>
+  <form action="/orderup/" 
+	method="POST" enctype="multipart/form-data">
+
+    <!-- Every new order needs a valid partner key. -->
+
+orderkey:
+    <input size="60" type="text" 
+       name="orderkey" value="-fill-in-key-from-part-1-"><br />
+
+
+    <!-- Previous items can be modified. -->
+
+item-1-set-copies:
+    <input size="60" type="text" 
+	   name="item-1-copies" value="2"><br />
+
+order-note:
+    <input size="60" type="text" 
+	   name="order-note" value="Thanks for the good times, Ruth and Bud"><br />
+
+    <!-- Never supplied label info in step1. . -->
+
+label-name:
+    <input size="60" type="text" 
+	   name="label-name" value="Pete Haskel"><br />
+label-email:
+    <input size="60" type="text" 
+	   name="label-email" value="petehas@gmail.com"><br />
+label-phone:
+    <input size="60" type="text" 
+	   name="label-phone" value="4254333962"><br />
+label-addr1:
+    <input size="60" type="text" 
+	   name="label-addr1" value="Fleetwood Apartments #1405"><br />
+label-addr2:
+    <input size="60" type="text" 
+	   name="label-addr2" value="817 NE Mace St."><br />
+label-city:
+    <input size="60" type="text" 
+	   name="label-city" value="Irving"><br />
+label-state:
+    <input size="60" type="text" 
+	   name="label-state" value="IL"><br />
+label-postal:
+    <input size="60" type="text" 
+	   name="label-postal" value="68081"><br />
+label-country:
+    <input size="60" type="text" 
+	   name="label-country" value="USA"><br />
+
+    <!-- To double check debug is asking that the entire order be
+    echoed back. -->
+
+debug:
+    <input size="60" type="text" 
+       name="debug" value="order"><br />
+
+    <!-- We're really good so without even checking let's place the
+    order. Note any invalid input will cause an error return. Only a
+    totally viable order will return 'placed'. -->
+
+order:
+    <input size="60" type="text" 
+	   name="order" value="place"><br />
+
+    <input type="submit" name="do" value="Submit">
+  </form>
+</body>
+

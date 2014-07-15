@@ -1,0 +1,103 @@
+<head>
+  <title>Order single image in a single POST</title>
+</head>
+<body>
+  <form action="/orderup/" 
+	method="POST" enctype="multipart/form-data">
+
+    <!-- Every new order needs a valid partner key. -->
+
+partnerkey:
+    <input size="60" type="text" 
+       name="partnerkey" value="RA98C18E2PE36D3C4B419C1190710045F5F1526D23"><br />
+
+
+    <!-- Fields for the first item -->
+
+item_1:
+    <input size="60" type="text" 
+	   name="item_1" value="RA98C18AAM8F5535374933D0BB99395422E8590FBB"><br />
+
+    <!-- This field may be omitted if only one copy is wanted. In this
+    case we want 2. -->
+
+item_1_set_copies:
+    <input size="60" type="text" 
+	   name="item_1_copies" value="1"><br />
+
+    <!-- This model has slots for a background and an inset. The
+    background is defaulted in the model so only the inset is
+    manditory. -->
+
+item_1_image:
+    <input size="60" type="file" 
+	   name="item_1_image" type="file"><br />
+
+    <!-- We're really good so without even checking let's place the
+    order. Note any invalid input will cause an error return. Only a
+    totally viable order will return 'placed'. -->
+
+
+    <!-- Order wide information goes in these fields. -->
+
+order_pref:
+    <input size="60" type="text" 
+	   name="order_pref" value="Single poster single image"><br />
+order_note:
+    <input size="60" type="text" 
+	   name="order_note" value="Wouldn't it be nice"><br />
+order_shipping:
+    <input size="60" type="text" 
+	   name="order_shipping" value="UPS_GND"><br />
+
+    <!-- Information for the order label. This may generate errors if
+    the field patterns are violated or if manditory fields are omitted
+    (empty). -->
+
+label_name:
+    <input size="60" type="text" 
+	   name="label_name" value="Grant Tegtmeier"><br />
+label_email:
+    <input size="60" type="text" 
+	   name="label_email" value="grant.tegtmeier@rpiprint.com"><br />
+label_phone:
+    <input size="60" type="text" 
+	   name="label_phone" value="425-391-7637"><br />
+label_addr1:
+    <input size="60" type="text" 
+	   name="label_addr1" value="Seattle Showroom"><br />
+label_addr2:
+    <input size="60" type="text" 
+	   name="label_addr2" value="315 1st Avenue South, Suite 200"><br />
+label_city:
+    <input size="60" type="text" 
+	   name="label_city" value="Seattle"><br />
+label_state:
+    <input size="60" type="text" 
+	   name="label_state" value="WA"><br />
+label_postal:
+    <input size="60" type="text" 
+	   name="label_postal" value="98104"><br />
+label_country:
+    <input size="60" type="text" 
+	   name="label_country" value="USA"><br />
+
+    <!-- To double check debug is asking that the entire order be
+    echoed back. -->
+
+debug:
+    <input size="60" type="text" 
+       name="debug" value="order"><br />
+
+    <!-- We're really good so without even checking let's place the
+    order. Note any invalid input will cause an error return. Only a
+    totally viable order will return 'placed'. -->
+
+order:
+    <input size="60" type="text" 
+	   name="order" value="place"><br />
+
+    <input type="submit" name="do" value="Submit">
+  </form>
+</body>
+

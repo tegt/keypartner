@@ -1,0 +1,103 @@
+<head>
+  <title>Order in a single POST</title>
+</head>
+<body>
+  <form action="/orderup/" 
+	method="POST" enctype="multipart/form-data">
+
+    <!-- Every new order needs a valid partner key. -->
+
+partnerkey:
+    <input size="60" type="text" 
+       name="partnerkey" value="RA98C18E2PE36D3C4B419C1190710045F5F1526D23"><br />
+
+
+    <!-- Fields for the first item -->
+
+item-1:
+    <input size="60" type="text" 
+	   name="item-1" value="RA98C18A9ME93F04DDE4DF348EBE142008876BF5BD"><br />
+
+    <!-- This field may be omitted if only one copy is wanted. In this
+    case we want 2. -->
+
+item-1-set-copies:
+    <input size="60" type="text" 
+	   name="item-1-copies" value="2"><br />
+
+    <!-- This model has slots for a background and an inset. The
+    background is defaulted in the model so only the inset is
+    manditory. -->
+
+item-1-inset:
+    <input size="60" type="file" 
+	   name="item-1-inset" type="file"><br />
+
+    <!-- We're really good so without even checking let's place the
+    order. Note any invalid input will cause an error return. Only a
+    totally viable order will return 'placed'. -->
+
+
+    <!-- Order wide information goes in these fields. -->
+
+order-pref:
+    <input size="60" type="text" 
+	   name="order-pref" value="Special offers at http://happypics.com/posters"><br />
+order-note:
+    <input size="60" type="text" 
+	   name="order-note" value="Thanks for the memories, Ruth"><br />
+order-shipping:
+    <input size="60" type="text" 
+	   name="order-shipping" value="UPS"><br />
+
+    <!-- Information for the order label. This may generate errors if
+    the field patterns are violated or if manditory fields are omitted
+    (empty). -->
+
+label-name:
+    <input size="60" type="text" 
+	   name="label-name" value="Pete Haskel"><br />
+label-email:
+    <input size="60" type="text" 
+	   name="label-email" value="petehas@gmail.com"><br />
+label-phone:
+    <input size="60" type="text" 
+	   name="label-phone" value="4254333962"><br />
+label-addr1:
+    <input size="60" type="text" 
+	   name="label-addr1" value="Fleetwood Apartments #1405"><br />
+label-addr2:
+    <input size="60" type="text" 
+	   name="label-addr2" value="817 NE Mace St."><br />
+label-city:
+    <input size="60" type="text" 
+	   name="label-city" value="Irving"><br />
+label-state:
+    <input size="60" type="text" 
+	   name="label-state" value="IL"><br />
+label-postal:
+    <input size="60" type="text" 
+	   name="label-postal" value="68081"><br />
+label-country:
+    <input size="60" type="text" 
+	   name="label-country" value="USA"><br />
+
+    <!-- To double check debug is asking that the entire order be
+    echoed back. -->
+
+debug:
+    <input size="60" type="text" 
+       name="debug" value="order"><br />
+
+    <!-- We're really good so without even checking let's place the
+    order. Note any invalid input will cause an error return. Only a
+    totally viable order will return 'placed'. -->
+
+order:
+    <input size="60" type="text" 
+	   name="order" value="place"><br />
+
+    <input type="submit" name="do" value="Submit">
+  </form>
+</body>
+

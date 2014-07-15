@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!-- 
+*  logger.jsp -- Logger web service test page
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<body> 
+<script type="text/javascript">
+<!--
+
+var loggerUrl="/statusup/";		
+
+var pingUrl="/statusup/";
+
+
+function logIt() {
+    $.ajax({
+	       url: 'http://storefronttest.rpiprint.com/statusup/index.php',
+	       data: '<?xml version="1.0" encoding="utf-8"?> \
+		   <Notification version="1.0" \
+		     xmlns="http://uos.rpiprint.com/xml/RPIAckXML" \
+		     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" \
+		     xsi:schemaLocation="http://uos.rpiprint.com/xml/RPIAckXML \
+		       http://uos.rpiprint.com/xml/RPIAckXML-1-0.xsd"> \
+		     <OrderID>Acme123</OrderID> \
+		     <AltOrderID>Web123</AltOrderID> \
+		     <Status>Accepted</Status> \
+		     <EventDate>2013-04-11T11:10:10-07:00</EventDate> \
+		   </Notification>',
+	       type: 'POST',
+	       contentType: "text/xml; charset=UTF-8",
+	       error: function(xhr, ajaxOptions, thrownError) {
+		   console.log(xhr.status);
+		   console.log(thrownError);
+	       }
+	   });
+};
+
+var iPingCounter=0;
+
+function doPing() {
+	var MAX_COUNTER=1000;
+
+	$("#logger_status").html("<font color='red' type='italic'>Checking status...</font>");
+	$.get(pingUrl, 
+		function(data) { 
+			$("#logger_status").html(data + "<br>" + pingUrl); 
+			if (++iPingCounter <= MAX_COUNTER) {
+				setTimeout(	
+					function() { doPing(); }, 60000 
+				);
+			}
+		}
+	     );
+}
+-->
+</script>
+<div id="header">
+	<h1>XML Test Page</h1>
+</div>	<!-- /header -->
+
+<hr>
+
+<div id="content">
+	<div>
+		<table>
+			<tr><td>partner_id</td><td><input type="text" id="partner_id" /></td></tr>
+			<tr><td>partner_url</td><td><input type="text" id="partner_url" /></td></tr>
+			<tr><td>ezp_project_id</td><td><input type="text" id="ezp_project_id" /></td></tr>
+			<tr><td>ezp_thumb_url</td><td><input type="text" id="ezp_thumb_url" /></td></tr>
+			<tr><td>sku</td><td><input type="text" id="sku" /></td></tr>
+			<tr><td>title</td><td><input type="text" id="title" /></td></tr>
+		</table>
+		<button onclick="logIt()">Log It!</button>  
+	</div>
+	<hr>
+	
+	<!-- result goes here -->
+	<div id="logger_result">
+	</div>	
+</div>	<!-- /content -->
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

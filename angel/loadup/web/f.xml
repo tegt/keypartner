@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Order version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://uos.rpiprint.com/xml/RPIOrderXML http://uos.rpiprint.com/xml/RPIOrderXMwL-1-0.xsd">
+    <Sender>StoreFront</Sender>
+    <CustomerID>Tegt</CustomerID>
+    <OrderID>RA98C1830O676908B0C517B06153D4B0F0E97061D0</OrderID>
+    <OrderDate>2013-06-18T17:42:04+00:00</OrderDate>
+    <StatusUrl>http://storefronttest.rpiprint.com/statusup/</StatusUrl>
+    <ShipMethod></ShipMethod>
+    <ShipTo>
+        <Name>Grant Tegtmeier</Name>
+        <Phone>425-391-7637</Phone>
+        <Email>grant.tegtmeier@rpiprint.com</Email>
+        <MemberID>160</MemberID>
+        <Address1>Seattle Showroom</Address1>
+        <Address2>315 1st Avenue South, Suite 200</Address2>
+        <City>Seattle</City>
+        <State>WA</State>
+        <Postal>98104</Postal>
+    </ShipTo>
+    <OrderItems>
+        <ItemID>RA98C1830O676908B0C517B06153D4B0F0E97061D0-1</ItemID>
+        <Quantity>1</Quantity>
+        <Sku>SKU goes here</Sku>
+        <OrderItems>
+            <Image Page="1" URL="http://storefronttest.rpiprint.com/assets/customer/image_RA98C1830O676908B0C517B06153D4B0F0E97061D0_1"/>
+        </OrderItems>
+    </OrderItems>
+</Order>

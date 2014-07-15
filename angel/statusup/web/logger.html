@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<!-- 
+*  logger.jsp -- Logger web service test page
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<body> 
+<script type="text/javascript">
+<!--
+
+//	var loggerUrl="http://localhost:8080/ezlogger/EZLogger.do";
+	var loggerUrl="/statusup/";		
+//	var loggerUrl="http://ec2-50-19-3-59.compute-1.amazonaws.com:8080/ezlogger/EZLogger.do";
+
+//	var pingUrl="http://localhost:8080/ezlogger/EZLogger.status";
+	var pingUrl="/statusup/";
+//	var pingUrl="http://ec2-50-19-3-59.compute-1.amazonaws.com:8080/ezlogger/EZLogger.status";
+
+function logIt() {
+	var d = { 
+		partner_id: $("#partner_id").attr('value'),
+		partner_url: $("#partner_url").attr('value'),
+		ezp_project_id: $("#ezp_project_id").attr('value'),
+		ezp_thumb_url: $("#ezp_thumb_url").attr('value'),
+		sku: $("#sku").attr('value'),
+		title: $("#title").attr('value')
+	};
+//	alert('posting to: '+loggerUrl);
+	$.post(loggerUrl, d, 
+		function(data) { 
+			$("#logger_result").html(data + " - " + loggerUrl); 
+		}
+	);
+}
+
+var iPingCounter=0;
+
+function doPing() {
+	var MAX_COUNTER=1000;
+//	alert('pinging: '+pingUrl);
+	$("#logger_status").html("<font color='red' type='italic'>Checking status...</font>");
+	$.get(pingUrl, 
+		function(data) { 
+			$("#logger_status").html(data + "<br>" + pingUrl); 
+			if (++iPingCounter <= MAX_COUNTER) {
+				setTimeout(	
+					function() { doPing(); }, 60000 
+				);
+			}
+		}
+	);
+}
+-->
+</script>
+<div id="header">
+	<h1>EZLogger Test Page</h1>
+	<h2>Current status:</h2>
+	<span id="logger_status"></span>
+</div>	<!-- /header -->
+
+<hr>
+
+<div id="content">
+	<div>
+		<table>
+			<tr><td>partner_id</td><td><input type="text" id="partner_id" /></td></tr>
+			<tr><td>partner_url</td><td><input type="text" id="partner_url" /></td></tr>
+			<tr><td>ezp_project_id</td><td><input type="text" id="ezp_project_id" /></td></tr>
+			<tr><td>ezp_thumb_url</td><td><input type="text" id="ezp_thumb_url" /></td></tr>
+			<tr><td>sku</td><td><input type="text" id="sku" /></td></tr>
+			<tr><td>title</td><td><input type="text" id="title" /></td></tr>
+		</table>
+		<button onclick="logIt()">Log It!</button>  
+	</div>
+	<hr>
+	
+	<!-- result goes here -->
+	<div id="logger_result">
+	</div>	
+</div>	<!-- /content -->
+
+<script type="text/javascript">
+<!--
+// document load callback
+function onDocumentLoad() {
+	doPing();
+}
+
+if (window.addEventListener) {
+	window.addEventListener('DOMContentLoaded', function(){onDocumentLoad()}, false);
+} else {
+	window.attachEvent('onload', function(){onDocumentLoad()});
+}
+-->
+</script>
+
+</body>
+</html>
