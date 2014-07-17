@@ -1,6 +1,6 @@
 <?php
   /**
-   *  Functionality common to all RPI classes
+   *  Functionality common to all KPT classes
    *
    *  @author Grant Tegtmeier <Grant@Tegt.com>
    *  @package keypartner
